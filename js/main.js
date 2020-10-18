@@ -5,26 +5,22 @@ let isNumber = function(n){
 };
 
 let getNumber = function (){
-    let myNum = prompt('Угадай число от 1 до 100');
-    console.log(myNum);
     let b = Math.floor(Math.random() * 100);
     console.log(b);
-    return function(){
-        for (let i = 0; i < Infinity; i++){
-            if (myNum === null) {
-                alert('Игра окончена');
-                break;
-            } else if (Number(myNum) === b) {
-                alert('Поздравляю, Вы угадали число!!!');
-                break;
-            } else if (myNum > b) {
-                myNum = prompt('Загаданное число меньше, введите другой вариант');
-            } else if (myNum < b) {
-                myNum = prompt('Загаданное число больше, введите другой вариант');
-            } else if (!isNumber(myNum)) {
-                myNum = prompt('Введите число!');
-            } 
-        }   
+    return function foo(myNum){
+        myNum = prompt('Угадай число от 1 до 100');
+        console.log(myNum);
+        if (myNum === null) {
+            return alert('Игра окончена');
+        } else if (Number(myNum) === b) {
+            return alert('Поздравляю, Вы угадали число!!!');
+        } else if (myNum > b) {
+            return foo(alert('Загаданное число меньше, введите другой вариант'));
+        } else if (myNum < b) {
+            return foo(alert('Загаданное число больше, введите другой вариант'));
+        } else if (!isNumber(myNum)) {
+            return foo(alert('Введите число!'));
+        } 
     };
 };
 
