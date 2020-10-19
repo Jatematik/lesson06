@@ -4,7 +4,8 @@ let isNumber = function(n){
     return !isNaN(parseFloat(n)) && isFinite(n);
 };
 
-let getNumber = function (b){
+let getNumber = function (){
+    const b = Math.floor(Math.random() * 100);
     console.log(b);
     return function foo(){
         let myNum = prompt('Угадай число от 1 до 100');
@@ -25,6 +26,6 @@ let getNumber = function (b){
     };
 };
 
-let getRandomNum = getNumber(Math.floor(Math.random() * 100));
+let getRandomNum = getNumber();
 getRandomNum();
 console.dir(getRandomNum);
