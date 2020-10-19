@@ -6,17 +6,21 @@ let isNumber = function(n){
 
 let getNumber = function (b){
     console.log(b);
-    return function foo(myNum = prompt('Угадай число от 1 до 100')){
+    return function foo(){
+        let myNum = prompt('Угадай число от 1 до 100');
         if (myNum === null) {
             alert('Игра окончена');
         } else if (Number(myNum) === b) {
             alert('Поздравляю, Вы угадали число!!!');
         } else if (myNum > b) {
-            foo(prompt('Загаданное число меньше, введите другой вариант'));
+            alert('Загаданное число меньше, введите другой вариант');
+            foo();
         } else if (myNum < b) {
-            foo(prompt('Загаданное число больше, введите другой вариант'));
+            alert('Загаданное число больше, введите другой вариант');
+            foo();
         } else if (!isNumber(myNum)) {
-            foo(prompt('Введите число!'));
+            alert('Введите число!');
+            foo();
         } 
     };
 };
